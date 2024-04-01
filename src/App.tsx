@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 
 import "preline/preline";
 import { IStaticMethods } from "preline/preline";
-import { Home } from "./components/Home/Home";
+import { Home } from "./pages/Home/Home";
 declare global {
   interface Window {
     HSStaticMethods: IStaticMethods;
