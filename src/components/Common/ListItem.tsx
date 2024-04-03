@@ -1,52 +1,57 @@
+import { Checkbox } from "./Checkbox";
+
 interface Props {
   item: {
     order: number;
     product: string;
+    date: {
+      date: string;
+      time: string;
+    };
+    observations?: string;
     amount: number;
-    client: string;
-    phone: string;
+    client: {
+      name: string;
+      phone: string;
+    };
   };
 }
 
 export const ListItem = ({
   order,
   product,
+  date,
+  observations,
   amount,
   client,
-  phone,
 }: Props["item"]) => {
   return (
-    <tr>
-      <th
-        scope="col"
-        className="px-6 py-4 whitespace-nowrap text-sm text-start font-normal text-gray-800 dark:text-gray-200"
-      >
-        {order}
-      </th>
-      <th
-        scope="col"
-        className="px-6 py-4 whitespace-nowrap text-sm text-start font-normal text-gray-800 dark:text-gray-200"
-      >
-        {product}
-      </th>
-      <th
-        scope="col"
-        className="px-6 py-4 whitespace-nowrap text-sm text-start font-normal text-gray-800 dark:text-gray-200"
-      >
-        {amount}
-      </th>
-      <th
-        scope="col"
-        className="px-6 py-4 whitespace-nowrap text-sm text-start font-normal text-gray-800 dark:text-gray-200"
-      >
-        {client}
-      </th>
-      <th
-        scope="col"
-        className="px-6 py-4 whitespace-nowrap text-sm text-start font-normal text-gray-800 dark:text-gray-200"
-      >
-        {phone}
-      </th>
-    </tr>
+    <p className="flex items-stretch gap-5 py-2.5 text-base text-start font-normal text-gray-800 dark:text-gray-200 leading-none cursor-pointer">
+      <span className="-mt-[4px]">
+        <Checkbox />
+      </span>
+      <span>{order}</span>
+      <span>{amount}x</span>
+      <span>
+        <div className="flex flex-col gap-1">
+          {product}
+          {observations ? (
+            <span className="text-sm">Obs: {observations}</span>
+          ) : null}
+        </div>
+      </span>
+      <span>
+        <div className="flex flex-col gap-1">
+          <span>{client.name}</span>
+          <span className="text-sm">{client.phone}</span>
+        </div>
+      </span>
+      <span>
+        <div className="flex flex-col gap-1">
+          <span>{date.time}</span>
+          <span className="text-sm">{date.date}</span>
+        </div>
+      </span>
+    </p>
   );
 };
