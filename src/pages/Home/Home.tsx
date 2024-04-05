@@ -1,5 +1,5 @@
 import { SideBar } from "../../components/Common/SideBar";
-import { Estrada } from "../../components/Estrada/Estrada";
+import { Tabs } from "../../components/Tab/Tabs";
 
 export const Home = () => {
   return (
@@ -8,7 +8,8 @@ export const Home = () => {
         <SideBar />
       </aside>
       <main className="col-span-4">
-        <Estrada />
+        {/* <Estrada /> */}
+        <Tabs />
       </main>
     </main>
   );
